@@ -1,0 +1,11 @@
+package: gitlab.com/marcsauter/lose
+import:
+- package: github.com/mitchellh/go-homedir
+- package: github.com/spf13/cobra
+  version: ~0.0.1
+- package: github.com/spf13/viper
+  version: ~1.0.0
+- package: google.golang.org/grpc
+  version: ~1.10.0
+- package: github.com/satori/go.uuid
+  version: ~1.2.0

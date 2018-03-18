@@ -1,0 +1,26 @@
+dep:
+  generates:
+    - vendor/*
+  cmds:
+    - glide install
+
+gen-proto:
+  sources:
+    - pkg/pb/rtail.proto
+  generates:
+    - pkg/pb/rtail.pb.go
+  cmds:
+    - protoc -I pkg/remotefile/ pkg/remotefile/remotefile.proto --go_out=plugins=grpc:pkg/remotefile
+
+build:
+  sources:
+    - cmd/rtail/*
+    - pkg/*
+  generates:
+    - dist/rtail
+  cmds:
+    - go build -o dist/rtail cmd/rtail/main.go
+
+clean:
+  cmds:
+    - rm -rf dist/*
